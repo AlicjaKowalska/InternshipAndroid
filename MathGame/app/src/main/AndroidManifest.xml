@@ -15,7 +15,8 @@
         <activity
             android:name=".GameActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.GamePage">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
