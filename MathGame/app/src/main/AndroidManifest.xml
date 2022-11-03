@@ -13,6 +13,14 @@
         android:theme="@style/Theme.MathGame"
         tools:targetApi="31">
         <activity
+            android:name=".ResultActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ResultPage">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".GameActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity"
