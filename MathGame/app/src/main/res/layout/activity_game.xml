@@ -84,11 +84,7 @@
         android:orientation="vertical">
 
         <TextView
-<<<<<<< HEAD
-            android:id="@+id/textView7"
-=======
             android:id="@+id/textQuestion"
->>>>>>> Design of the game activity
             android:layout_width="300dp"
             android:layout_height="75dp"
             android:layout_marginTop="50dp"
@@ -97,11 +93,7 @@
             android:textSize="34sp" />
 
         <EditText
-<<<<<<< HEAD
-            android:id="@+id/editTextNumber"
-=======
             android:id="@+id/editTextAnswer"
->>>>>>> Design of the game activity
             android:layout_width="300dp"
             android:layout_height="75dp"
             android:layout_marginTop="20dp"
@@ -119,11 +111,7 @@
             android:orientation="horizontal">
 
             <Button
-<<<<<<< HEAD
-                android:id="@+id/button"
-=======
                 android:id="@+id/buttonOk"
->>>>>>> Design of the game activity
                 android:layout_width="wrap_content"
                 android:layout_height="75dp"
                 android:layout_margin="10dp"
@@ -132,11 +120,7 @@
                 android:textSize="16sp" />
 
             <Button
-<<<<<<< HEAD
-                android:id="@+id/button2"
-=======
                 android:id="@+id/buttonNext"
->>>>>>> Design of the game activity
                 android:layout_width="wrap_content"
                 android:layout_height="75dp"
                 android:layout_margin="10dp"
