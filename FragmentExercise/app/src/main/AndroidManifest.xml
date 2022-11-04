@@ -34,6 +34,7 @@
         </activity>
         <activity android:name=".ReplaceFragment" />
         <activity android:name=".ListFragment" />
+        <activity android:name=".DialogFragmentMainActivity" />
     </application>
 
 </manifest>

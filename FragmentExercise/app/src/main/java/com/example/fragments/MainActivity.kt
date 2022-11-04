@@ -13,14 +13,15 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var replaceFragment : Button
     lateinit var listFragment : Button
+    lateinit var dialogFragment : Button
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         replaceFragment = findViewById(R.id.buttonReplaceFragment)
         listFragment = findViewById(R.id.buttonListFragment)
+        dialogFragment = findViewById(R.id.buttonDialogFragment)
 
         replaceFragment.setOnClickListener {
             var intent = Intent(this@MainActivity, ReplaceFragment::class.java)
@@ -29,6 +30,11 @@ class MainActivity : AppCompatActivity() {
 
         listFragment.setOnClickListener {
             var intent = Intent(this@MainActivity, ListFragment::class.java)
+            startActivity(intent)
+        }
+
+        dialogFragment.setOnClickListener {
+            var intent = Intent(this@MainActivity, DialogFragmentMainActivity::class.java)
             startActivity(intent)
         }
 
