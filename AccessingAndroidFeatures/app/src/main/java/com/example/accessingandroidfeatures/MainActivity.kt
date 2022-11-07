@@ -33,5 +33,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, SendEmail::class.java)
             startActivity(intent)
         }
+
+        mainBinding.buttonCall.setOnClickListener {
+            val intent = Intent(this, MakeACall::class.java)
+            startActivity(intent)
+        }
     }
 }
