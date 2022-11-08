@@ -38,5 +38,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MakeACall::class.java)
             startActivity(intent)
         }
+
+        mainBinding.buttonSpeechToText.setOnClickListener {
+            val intent = Intent(this, SpeechToText::class.java)
+            startActivity(intent)
+        }
     }
 }

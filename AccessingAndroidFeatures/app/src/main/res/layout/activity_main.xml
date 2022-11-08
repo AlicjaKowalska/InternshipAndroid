@@ -9,7 +9,7 @@
 
     <Button
         android:id="@+id/buttonSendSMS"
-        android:layout_width="wrap_content"
+        android:layout_width="175dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:text="Send sms"
@@ -20,7 +20,7 @@
 
     <Button
         android:id="@+id/buttonSendEmail"
-        android:layout_width="wrap_content"
+        android:layout_width="175dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="Send email"
@@ -31,13 +31,24 @@
 
     <Button
         android:id="@+id/buttonCall"
-        android:layout_width="wrap_content"
+        android:layout_width="175dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:text="Make a call"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSendEmail"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSendEmail" />
+
+    <Button
+        android:id="@+id/buttonSpeechToText"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:text="Speech to text "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCall"
         android:layout_marginTop="50dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
