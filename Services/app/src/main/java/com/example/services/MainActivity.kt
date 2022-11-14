@@ -1,6 +1,9 @@
 package com.example.services
 
+import android.content.BroadcastReceiver
 import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,6 +16,31 @@ class MainActivity : AppCompatActivity() {
 
     var count = 1
 
+    private val receiver : BroadcastReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent) {
+            val bundle = intent.extras
+            if (bundle != null) {
+                val sum = bundle.getInt(MyService.SUM)
+                val resultCode = bundle.getInt(MyService.RESULT)
+                if (resultCode == RESULT_OK) {
+                    mainBinding.textViewBroadcast.text = "Process complete with sum $sum"
+                } else {
+                    mainBinding.textViewBroadcast.text = "Process failed!"
+                }
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        registerReceiver(receiver, IntentFilter(MyService.NOTIFICATION))
+    }
+
+    override fun onPause() {
+        super.onPause()
+        unregisterReceiver(receiver)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
@@ -21,10 +49,22 @@ class MainActivity : AppCompatActivity() {
 
         mainBinding.progressBar.setVisibility(View.INVISIBLE)
 
-        mainBinding.button.setOnClickListener {
+        mainBinding.buttonAsyncTask.setOnClickListener {
             DownloadTask(
                 applicationContext
             ).execute(10)
+        }
+
+        mainBinding.textViewAsyncTask.setOnClickListener {
+            val intent = Intent(applicationContext, MyService::class.java)
+            intent.putExtra(MyService.KEY_NUM, 90)
+            startService(intent)
+        }
+
+        mainBinding.buttonBroadcast.setOnClickListener {
+            val intent = Intent(applicationContext, MyService::class.java)
+            intent.putExtra(MyService.KEY_NUM, 90)
+            startService(intent)
         }
     }
 
@@ -39,13 +79,13 @@ class MainActivity : AppCompatActivity() {
         override fun onPostExecute(s: String?) {
             super.onPostExecute(s)
             mainBinding.progressBar.visibility = View.GONE
-            mainBinding.textView.text = s
+            mainBinding.textViewAsyncTask.text = s
         }
 
         override fun onProgressUpdate(vararg values: Int?) {
             super.onProgressUpdate(*values)
             mainBinding.progressBar.progress = values.get(0)!!
-            mainBinding.textView.text = String.format("Running " + values.get(0))
+            mainBinding.textViewAsyncTask.text = String.format("Running " + values.get(0))
         }
 
         override fun doInBackground(vararg integers: Int?): String? {
